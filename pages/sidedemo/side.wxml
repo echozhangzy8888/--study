@@ -1,0 +1,43 @@
+<view class="sideContent">
+    <view class="nav_left">
+     <block wx:for-items="{{navLeftItems}}"  wx:key= "navLeftItems">  
+       <view class="nav_left_items {{curNav == item.id ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.id}}">{{item.tree.desc}}</view> 
+    </block>  
+    </view>
+    <view class="nav_right">
+    <!-- {{title}}-->
+       <view wx:if="{{navRightItems[curIndex].tree.nodes[1].tree.isEmptyNodes == true}}">暂无数据</view>    
+       <view wx:else >
+           <block wx:for="{{navRightItems[curIndex].tree.nodes}}" wx:key= "navRightItems">
+             
+               <text class="bTitle"> {{item.tree.desc}}</text>
+               <div class="bCon">
+                <block  wx:for="{{item.tree.nodes}}" wx:for-item="catelog" wx:key="catelog">  
+                    <view class="nav_right_items">  
+                            <navigator url="../list/index?brand={{catelog.tree.id}}&typeid={{navRightItems[curIndex].id}}">  
+                                <!--用view包裹图片组合，如果有图片就用，无图片提供就使用50x30的这个默认图片-->  
+                                <view>                
+                                <block wx:if="{{catelog.tree.logo}}">  
+                                    <image src="{{catelog.tree.logo}}"></image>  
+                                </block>  
+                                <block wx:else>  
+                                    <image src="http://temp.im/50x30"></image>  
+                                </block>  
+                                </view>  
+                                <!--如果有文字，就用文字；无文字就用其他-->  
+                                <view wx:if="{{catelog.tree.desc}}">  
+                                <text>{{catelog.tree.desc}}</text>  
+                                </view>  
+                                <view wx:else>  
+                                <text>{{catelog.tree.desc2}}</text>  
+                                </view>  
+                            </navigator>  
+                    </view>  
+                </block>  
+               </div>
+               
+           </block>
+       </view>
+      
+    </view>
+</view>
