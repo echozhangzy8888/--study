@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/sidedemo/side"
+    "pages/sidedemo/side",
+    "pages/taobaomenu/taobaomenu"
   ],
   "tabBar": {
     "list": [{
