@@ -37,5 +37,16 @@
       data-value="{{value}}" data-key="{{attrValueObj.attrKey}}" data-index="{{attrIndex}}" data-selectedvalue="{{attrValueObj.selectedValue}}" wx:for="{{attrValueObj.attrValues}}" wx:for-item="value" wx:for-index="valueIndex" wx:key="*this">{{value}}</view>  
     </view>  
   </view>  
-</view>  
+</view> 
+<view>
+   已选：  <span  wx:for="{{curSelected}}"  wx:key="curSelected">"{{item.value}}"</span>
+
+</view>
+<!--button-->  
+<view class="btn-area">  
+  <button class="btn" type="primary" bindtap="submit">确定</button>  
+</view> 
+
+
+ 
 
