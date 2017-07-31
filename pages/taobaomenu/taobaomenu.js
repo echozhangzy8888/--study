@@ -202,8 +202,18 @@ Page({
             }
         }
         console.log(attrValueList);
+
+        let stockArry = [];
+        for (let i of [...commodityAttr]) {
+            stockArry.push(i.stock)
+        }
+        let stockTotal = stockArry.reduce(function (sum, value) {
+            return sum + value;
+        }, 0);
+
         this.setData({
-            attrValueList: attrValueList
+            attrValueList: attrValueList,
+            stockTotal:stockTotal
         });
 
     },
@@ -236,7 +246,8 @@ Page({
     /* 选中 */
     selectValue: function (attrValueList, index, key, value, unselectStatus) {
         // console.log('firstIndex', this.data.firstIndex);  
-        let includeGroup = [],curSelected =[];
+        let includeGroup = [],
+            curSelected = [];
         if (index == this.data.firstIndex && !unselectStatus) { // 如果是第一个选中的属性值，则该属性所有值可选  
             var commodityAttr = this.data.commodityAttr;
             // 其他选中的属性值全都置空  
@@ -280,11 +291,22 @@ Page({
             }
         }
         console.log('结果', attrValueList);
+        console.log('includeGroup', includeGroup);
+
+        let stockArry = [];
+        for (let i of [...includeGroup]) {
+            stockArry.push(i.stock)
+        }
+        let stockTotal = stockArry.reduce(function (sum, value) {
+            return sum + value;
+        }, 0);
+
         this.setData({
             attrValueList: attrValueList,
-            includeGroup: includeGroup
+            includeGroup: includeGroup,
+            stockTotal: stockTotal
         });
-        console.log('includeGroup', includeGroup);
+        //  console.log('stockTotal', this.data.stockTotal);
 
         let count = 0;
         for (let i = 0; i < attrValueList.length; i++) {
@@ -292,7 +314,7 @@ Page({
                 if (attrValueList[i].selectedValue) {
                     count++;
                     curSelected.push({
-                        key:attrValueList[i].attrKey,
+                        key: attrValueList[i].attrKey,
                         value: attrValueList[i].selectedValue
                     })
                     break;
@@ -302,36 +324,59 @@ Page({
         if (count < 2) { // 第一次选中，同属性的值都可选  
             this.setData({
                 firstIndex: index,
-                curSelected:curSelected
+                curSelected: curSelected
             });
         } else {
             this.setData({
                 firstIndex: -1,
-                curSelected:curSelected
+                curSelected: curSelected
             });
         }
-      console.log(curSelected)
     },
     /* 取消选中 */
     disSelectValue: function (attrValueList, index, key, value) {
-        var commodityAttr = this.data.commodityAttr;
+        let commodityAttr = this.data.commodityAttr;
         attrValueList[index].selectedValue = '';
+        let curSelectedArray = this.data.curSelected; 
         // 判断属性是否可选  
         for (var i = 0; i < attrValueList.length; i++) {
             for (var j = 0; j < attrValueList[i].attrValues.length; j++) {
                 attrValueList[i].attrValueStatus[j] = true;
             }
         }
+        
+        //库存数量
+        let stockArry = [];
+        for (let i of [...commodityAttr]) {
+            stockArry.push(i.stock)
+        }
+        let stockTotal = stockArry.reduce(function (sum, value) {
+            return sum + value;
+        }, 0);
+
+
         this.setData({
             includeGroup: commodityAttr,
-            attrValueList: attrValueList
+            attrValueList: attrValueList,
+            stockTotal: stockTotal
         });
-        console.log("取消结果",attrValueList)
+        console.log("取消结果", attrValueList)
+
         for (var i = 0; i < attrValueList.length; i++) {
             if (attrValueList[i].selectedValue) {
                 this.selectValue(attrValueList, i, attrValueList[i].attrKey, attrValueList[i].selectedValue, true);
             }
+            if(attrValueList[i].selectedValue == ""){
+                for(let j = 0 ;j< curSelectedArray.length; j++){
+                   if( curSelectedArray[j].key == attrValueList[i].attrKey){
+                        curSelectedArray.splice(j,1)
+                   }
+                }
+            }
         }
+         this.setData({
+            curSelected: curSelectedArray,
+        });
     },
     /* 点击确定 */
     submit: function () {

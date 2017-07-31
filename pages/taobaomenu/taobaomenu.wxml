@@ -38,9 +38,16 @@
     </view>  
   </view>  
 </view> 
-<view>
-   已选：  <span  wx:for="{{curSelected}}"  wx:key="curSelected">"{{item.value}}"</span>
 
+
+ <view wx:if="{{curSelected.length > 0}}">
+  已选：<span  wx:for="{{curSelected}}"  wx:key="curSelected">"{{item.value}}"</span>
+</view>
+<view wx:else>
+   请选择 商品属性
+</view>
+<view>
+库存： {{stockTotal}}
 </view>
 <!--button-->  
 <view class="btn-area">  
