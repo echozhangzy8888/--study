@@ -374,7 +374,7 @@ Page({
                 }
             }
         }
-         this.setData({
+        this.setData({
             curSelected: curSelectedArray,
         });
     },

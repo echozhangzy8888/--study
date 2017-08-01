@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/sidedemo/side",
-    "pages/taobaomenu/taobaomenu"
+    "pages/taobaomenu/taobaomenu",
+    "pages/recommend/list"
   ],
   "tabBar": {
     "list": [{
