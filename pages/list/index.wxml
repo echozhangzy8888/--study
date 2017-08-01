@@ -1,0 +1,29 @@
+<view class="listContainer">
+    <!--head-->  
+    <view class="tit">  
+      <view class="title_val">商品列表</view>  
+      <view class="more">更多</view>  
+    </view>  
+    <!--list-->  
+    <view class="goodslist">  
+      <!--item-->  
+      <block wx:for="{{goodslist}}" wx:key="*this">  
+        <view class ="goods" bindtap = "linkDetail" id = "{{item.id}}">
+            <view>  
+              <image src="{{item.imgUrl}}" class="good-img" />  
+            </view>
+            <view class="good-cont">  
+                <view class="goods-navigator">  
+                  <text class="good-name">{{item.name}}</text>  
+              </view> 
+              <view class="good-price">  
+                <text>￥{{item.price}}</text>  
+                <image id="{{item.id}}" class="cart" src="/images/cart.jpg" catchtap="addcart" />  
+              </view>   
+            </view>
+        </view>
+      </block>  
+    </view>  
+</view>
+  
+

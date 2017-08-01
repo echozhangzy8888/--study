@@ -1,0 +1,48 @@
+
+<view class="cart" hidden="{{iscart}}">  
+     <i class="iconfont icon-emptyCart"><span class="text">购物车是空的</span></i> 
+       <view class="emptyCart-btnDiv">
+              <button type="default" size="mini" class="flex-item" plain="true"> 逛逛秒杀 </button>
+              <button type="warn" size="mini" class="flex-item" > 看看商品 </button>
+       </view>
+      <view class="recomond">为你推荐</view>
+      <view>
+          啊啊啊 内容
+      </view>
+
+</view> 
+
+<view  class="cartList" hidden="{{!iscart}}" >
+    <!--header-->  
+    <view class="baoyou"></view>  
+      <!--list item-->  
+     <block wx:for="{{cart}}" wx:key="cart">
+        <view class="goods">
+            <view>  
+                <image src="{{item.imgUrl}}" class="good-img"/>  
+            </view>  
+            <view class="good-cont">
+                 <view class="goods-navigator">  
+                    <text class="good-name">{{item.name}}</text>  
+                </view>  
+                <view class="good-price">  
+                     <text class="price">￥{{item.price}}</text>  
+                     <view class="btn-box"> 
+                        <view class="btn">  
+                          <button id="del{{index}}" type="default" size="mini" bindtap="delCount">-</button> 
+                          <input  value="{{item.count}}"/>  
+                        </view>
+                        <span>删除</span>           
+                     </view>
+                </view>
+            </view>
+        </view>
+     </block> 
+
+     <view class="total">  
+        <view class="total_text">合计：<text>￥{{total}}</text></view>  
+        <button class="total_js" size="mini">去结算({{goodsCount}})</button>  
+    </view>  
+</view>
+  
+

@@ -1,0 +1,164 @@
+/**list.wxss**/
+
+page {
+    height: 100%;
+    background: #f7f7f7;
+}
+
+@font-face {
+    font-family: 'iconfont';
+    /* project id 371191 */
+    src: url('//at.alicdn.com/t/font_b97qu9iagqhvvx6r.eot');
+    src: url('//at.alicdn.com/t/font_b97qu9iagqhvvx6r.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_b97qu9iagqhvvx6r.woff') format('woff'), url('//at.alicdn.com/t/font_b97qu9iagqhvvx6r.ttf') format('truetype'), url('//at.alicdn.com/t/font_b97qu9iagqhvvx6r.svg#iconfont') format('svg');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 50px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-emptyCart:before {
+    content: "\e621";
+}
+
+
+.cart {
+    padding: 100rpx 0 0 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: #999;
+    background: #fff;
+}
+
+.cart .icon-emptyCart .text {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 14px;
+    vertical-align: middle
+}
+
+.cart .emptyCart-btnDiv {
+    margin: 10px 0;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content:center
+}
+
+.cart .emptyCart-btnDiv .flex-item{
+    margin: 0 10px;
+    flex: 1;
+}
+
+.cart .recomond{
+    padding:10px 0;
+    text-align: center;
+    width: 100%;
+     background: #f7f7f7;
+}
+
+.cartList .baoyou {
+    font-size: 18px;
+    color: #db2929;
+    padding: 10px;
+}
+
+.cartList .goods {
+    background: #fff;
+    border-top: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 10px 10px 0 10px;
+    display: flex;
+}
+
+.cartList .goods image {
+    width: 80px;
+    height: 80px;
+    border: 1px solid #ddd;
+}
+
+.cartList .goods .good-cont {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    color: #555;
+    font-size: 14px;
+    padding: 5px;
+    height: 100px;
+}
+
+.cartList .goods .good-cont .goods-navigator {
+    display: flex;
+    flex: 2;
+}
+
+.cartList .goods .good-cont .good-price {
+    display: flex;
+    flex-direction: column;
+    flex: 3;
+}
+
+.cartList .goods .good-cont .good-price .price {
+    font-size: 16px;
+    color: #ec5151;
+}
+
+.cartList .goods .good-cont .good-price .btn-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cartList .goods .good-cont .good-price .btn-box image {
+    width: 23px;
+    height: 23px;
+    border: 0;
+    margin: 0;
+}
+
+.cartList .goods .good-cont .good-price .btn {
+    display: flex;
+    flex-direction: row;
+}
+
+.cartList .goods .good-cont .good-price .btn input {
+    margin: 0;
+    width: 40px;
+    text-align: center;
+    border: 1px solid #eee;
+    font-size: 16px;
+    height: 28px;
+}
+
+.cartList .goods .good-cont .good-price .btn button {
+    margin: 0;
+}
+
+.total {
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.total .total_text {
+    display: flex;
+    color: #777;
+}
+
+.total .total_text text {
+    color: #ec5151;
+}
+
+.total .total_js {
+    color: #fff;
+    background: #ec5151;
+    height: 30px;
+    margin: 0;
+}

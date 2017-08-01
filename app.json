@@ -4,7 +4,9 @@
     "pages/logs/logs",
     "pages/sidedemo/side",
     "pages/taobaomenu/taobaomenu",
-    "pages/recommend/list"
+    "pages/recommend/list",
+    "pages/list/index",
+    "pages/cart/cart"
   ],
   "tabBar": {
     "list": [{
@@ -14,6 +16,14 @@
       {
         "pagePath": "pages/logs/logs",
         "text": "日志"
+      },
+      {
+        "pagePath": "pages/list/index",
+        "text": "商品"
+      },
+       {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车"
       }
     ]
   },
